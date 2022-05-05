@@ -7,7 +7,6 @@ public class App {
 
     //Game Variables)
     static Player player;
-    public static QuestManager questManager = new QuestManager();
 
     public static void main(String[] args) throws Exception {
         intro();
