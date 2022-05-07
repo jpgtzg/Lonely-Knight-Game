@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class QuestManager {
     
-    List<Quest> quests = null;
+    List<Quest> quests = new ArrayList<Quest>();
 
     public void addQuest(Quest quest) {
         quests.add(quest);
@@ -19,7 +20,9 @@ public class QuestManager {
 
     public void showQuests(){
         for (Quest quest : quests) {
-            System.out.println(quest.getName());
+            System.out.println(quest.getName()
+            + "\n" + quest.getDescription()
+            + "\nReward: " + quest.getReward());
         }
     }
 }
