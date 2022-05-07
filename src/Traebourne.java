@@ -11,20 +11,31 @@ public class Traebourne {
 
     public static void main(String[] args) throws InterruptedException {
         App.clear();
-        App.print("You are in the town of Traebourne. This city is a place of great adventure and mystery. It was founded a long time ago by a great wizard named Traebourne.");
-        App.print("You see a sign that says 'Traebourne Town Square'. \nAt your left there's a sign that says 'Traebourne Tavern'. \nAt your right there's a sign that says 'Traebourne Armory'.");
-        while(true) //TODO Fix this
+        App.print("You are in the town of Traebourne."
+        + " This city is a place of great adventure and mystery."
+        + " It was founded a long time ago by a great wizard named Traebourne.");
+
+        App.print("You see a sign that says 'Traebourne Town Square'."
+        + "\nAt your left there's a sign that says 'Traebourne Tavern'."
+        + "\nAt your right there's a sign that says 'Traebourne Armory'.");
+        boolean decision = true;
+
+        //Decision loop
+        while(decision)
         {
             App.print("Where would you like to go? \n 1. Town Square \n 2. Tavern \n 3. Armory");
             int choice = in.nextInt();
             switch (choice) {
                 case 1:
+                    decision = false;
                     townSquare();
                     break;
                 case 2:
+                    decision = false;
                     tavern();
                     break;
                 case 3:
+                    decision = false;
                     armory();
                     break;
                 default:
@@ -70,5 +81,6 @@ public class Traebourne {
         questManager.addQuest(hoodedQuest);
         questManager.showQuests();
     }
-    
+
+    /* END Town Square */ 
 }
