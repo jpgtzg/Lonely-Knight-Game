@@ -48,9 +48,11 @@ public class Traebourne {
     }
 
     private static void armory() {
+        //TODO add armory
     }
 
     private static void tavern() {
+        //TODO add tavern
     }
 
     public static void townSquare() throws InterruptedException {
@@ -68,6 +70,7 @@ public class Traebourne {
                 + "\n 4. Go back");
         int choice = in.nextInt();
         switch (choice) {
+            //TODO FINISH THIS
             case 1:
                 hoodedMan();
                 break;
@@ -87,6 +90,7 @@ public class Traebourne {
     }
 
     private static void hoodedMan() {
+        //TODO FINISH THIS
         Quest hoodedQuest = new Quest(
                 1,
                 "A tricky business",
@@ -98,6 +102,8 @@ public class Traebourne {
 
     /* END Town Square */
 
+
+    /* Terminal Methods */
     static void print(String text) throws InterruptedException {
         App.print(text);
     }
