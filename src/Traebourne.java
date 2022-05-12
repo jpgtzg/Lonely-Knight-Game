@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Traebourne {
+public class Traebourne extends SystemSettings{
 
     // Dialogue Variables
     static Scanner in = new Scanner(System.in);
@@ -97,18 +97,7 @@ public class Traebourne {
                 "You must obtain a sword for the hooded man",
                 5);
         questManager.addQuest(hoodedQuest);
-        questManager.showQuests();
+        questManager.showQuests();        
     }
-
     /* END Town Square */
-
-
-    /* Terminal Methods */
-    static void print(String text) throws InterruptedException {
-        App.print(text);
-    }
-
-    static void clear() {
-        App.clear();
-    }
 }
