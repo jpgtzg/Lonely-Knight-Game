@@ -8,6 +8,7 @@ public class Traebourne extends SystemSettings {
     // Game variables
     //static Player player = App.player;
     static QuestManager questManager = App.questManager;
+    final static QuestModel questModel = new QuestModel();
 
     public static void main(String[] args) throws InterruptedException {
         clear();
@@ -112,18 +113,16 @@ public class Traebourne extends SystemSettings {
                     + "\n- Hooded man: Not now, kid. First I need you to help me"
                     + "\n- You: Wha.. What do you need help with?"
                     + "\n- Hooded man: I need to get my old sword."
-                    + "\n- You: Oh right, the old fetch quest, right? Well, I'll help you get it."
+                    + "\n- You: Why?."
+                    + "\n- Hooded man: You see, I was once a mighty figher, but I lost it long ago"
+                    + "\n- You: Hmmm... Okay then... I'll get it for you, but I need to know more about you"
+                    + "\n- Hooded man: Sure, I'll also give you some coins as a better incentive"
+                    + "\n- You: Well, that's better"
                     + "\n\nNEW QUEST OBTAINED");
-            Quest hoodedQuest = new Quest(
-                    1,
-                    "A tricky business",
-                    "You must obtain a sword for the hooded man",
-                    5);
-            questManager.addQuest(hoodedQuest);
+            questManager.addQuest(questModel.searchQuest(0));
             questManager.showQuests();
             
         }
-
     }
     /* END Town Square */
 }

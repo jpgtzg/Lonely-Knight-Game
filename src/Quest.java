@@ -46,4 +46,8 @@ public class Quest {
         this.completed = state;
         return completed;
     }
+
+    public Object stream() {
+        return null;
+    }
 }
