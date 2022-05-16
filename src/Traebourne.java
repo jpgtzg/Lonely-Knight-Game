@@ -1,15 +1,17 @@
 import java.util.Scanner;
 
-public class Traebourne extends SystemSettings{
+public class Traebourne extends SystemSettings {
 
     // Dialogue Variables
     static Scanner in = new Scanner(System.in);
 
     // Game variables
+    //static Player player = App.player;
     static QuestManager questManager = App.questManager;
 
     public static void main(String[] args) throws InterruptedException {
         clear();
+        townSquare.hoodedMan();
         print("You are in the town of Traebourne."
                 + " This city is a place of great adventure and mystery."
                 + " It was founded a long time ago by a great wizard named Traebourne.");
@@ -30,7 +32,7 @@ public class Traebourne extends SystemSettings{
             switch (choice) {
                 case 1:
                     decision = false;
-                    townSquare();
+                    townSquare.start();
                     break;
                 case 2:
                     decision = false;
@@ -48,56 +50,80 @@ public class Traebourne extends SystemSettings{
     }
 
     private static void armory() {
-        //TODO add armory
+        // TODO add armory
     }
 
     private static void tavern() {
-        //TODO add tavern
+        // TODO add tavern
     }
 
-    public static void townSquare() throws InterruptedException {
-        clear();
-        print("You are now in the town square."
-                + "\nThere are a few people around you. It is a cloudy day. It appears it will soon rain"
-                + "\nAt the center there's a fountain with a strange man, hooded. No one is near him"
-                + "\nThere's a shop at your left, it appears it sells food"
-                + "\nAt your right there's the town inn");
+    /* Town Square */
+    private class townSquare {
 
-        print("What do you do? "
-                + "\n 1. Approach man "
-                + "\n 2. Go into the shop "
-                + "\n 3. Go into the Inn "
-                + "\n 4. Go back");
-        int choice = in.nextInt();
-        switch (choice) {
-            //TODO FINISH THIS
-            case 1:
-                hoodedMan();
-                break;
+        public static void start() throws InterruptedException {
+            clear();
+            print("You are now in the town square."
+                    + "\nThere are few people around you. It is a cloudy day. It appears it will soon rain"
+                    + "\nAt the center there's a fountain with a strange man, hooded. No one is near him"
+                    + "\nThere's a shop at your left, it appears it sells food"
+                    + "\nAt your right there's the town inn");
 
-            case 2:
+            print("What do you do? "
+                    + "\n 1. Approach man "
+                    + "\n 2. Go into the shop "
+                    + "\n 3. Go into the Inn "
+                    + "\n 4. Go back");
+            int choice = in.nextInt();
+            switch (choice) {
+                // TODO FINISH THIS
+                case 1:
+                    hoodedMan();
+                    break;
 
-                break;
+                case 2:
 
-            case 3:
+                    break;
 
-                break;
-            case 4:
-                main(null);
-                break;
+                case 3:
+
+                    break;
+                case 4:
+                    main(null);
+                    break;
+            }
+
         }
 
-    }
+        private static void hoodedMan() throws InterruptedException {
+            Player player = new Player("Juan Pablo", 1, 0, 100, 100);
+            // TODO FINISH THIS
+            print("You approach the hooded man"
+                    + "\nYou stare at him for a couple of seconds"
+                    + "\nYou start the conversation\n"
+                    + "\n- You: Who are you?"
+                    + "\n- Hooded man: Who's asking?"
+                    + "\n- You: You don't seem from around here, you seem, distant, like you don't quite fit"
+                    + "\n- Hooded man: Hmmmm, you're quite smart for being here, but you've got most of it wrong. All right, I'll tell you a little bit about myself. But first, I need to know your name."
+                    + "\n- You: Why would you need to know my name?"
+                    + "\n- Hooded man: I need to know who I'm speaking with"
+                    + "\n- You: I'm " + player.getName()
+                    + "\n- Hooded man: Thanks for that " + player.getName() + ", I'm glad to meet you."
+                    + "\n- You: Now's your turn, who are you?"
+                    + "\n- Hooded man: Not now, kid. First I need you to help me"
+                    + "\n- You: Wha.. What do you need help with?"
+                    + "\n- Hooded man: I need to get my old sword."
+                    + "\n- You: Oh right, the old fetch quest, right? Well, I'll help you get it."
+                    + "\n\nNEW QUEST OBTAINED");
+            Quest hoodedQuest = new Quest(
+                    1,
+                    "A tricky business",
+                    "You must obtain a sword for the hooded man",
+                    5);
+            questManager.addQuest(hoodedQuest);
+            questManager.showQuests();
+            
+        }
 
-    private static void hoodedMan() {
-        //TODO FINISH THIS
-        Quest hoodedQuest = new Quest(
-                1,
-                "A tricky business",
-                "You must obtain a sword for the hooded man",
-                5);
-        questManager.addQuest(hoodedQuest);
-        questManager.showQuests();        
     }
     /* END Town Square */
 }
