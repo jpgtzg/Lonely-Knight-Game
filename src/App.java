@@ -7,19 +7,41 @@ public class App extends SystemSettings{
 
     //Game Variables)
     static Player player;
-    public static QuestManager questManager = new QuestManager();
 
     public static void main(String[] args) throws Exception 
     {
-        intro();
-    }
+        clear();
+        print("Welcome, player. What's your name?");
+        player = new Player(in.nextLine(), 100, 100 );
+        clear();
+        player.getName();
 
-    public static void intro() throws InterruptedException
-    {
-        clear();
-        print("Welcome. What's your name? ");
-        player = new Player(in.nextLine(), 1, 0, 100, 100);
-        clear();
-        player.status();
+        //Decision loop
+        boolean decision = true;
+        
+
+        print("Excellent");
+        //Decision loop
+        decision = true;
+        while(decision){
+            print("Ready to play?(y/n)");
+            String choice = in.nextLine();
+            if(choice.equals("y"))
+            {
+                decision = false;
+                Traebourne.main(null);
+            }
+            else if(choice.equals("n"))
+            {
+                decision = false;
+                print("Goodbye.");
+                Thread.sleep(1000);
+                System.exit(0);
+            }
+            else
+            {
+                print("Please enter a valid choice.");
+            }
+        }
     }
 }
