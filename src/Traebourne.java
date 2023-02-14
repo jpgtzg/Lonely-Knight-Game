@@ -3,12 +3,12 @@ import java.util.Scanner;
 public class Traebourne extends SystemSettings {
 
     // Dialogue Variables
-    static Scanner in = new Scanner(System.in);
+    private static Scanner in = new Scanner(System.in);
 
     // Game variables
-    static Player player = App.player;
+    private static Player player = App.player;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         clear();
         print("You are in Traebourne Town."
                 + "\nIn front of you, there's a sign that reads 'Traebourne Inn'."
@@ -45,7 +45,7 @@ public class Traebourne extends SystemSettings {
 
     }
 
-    private static void inn() throws InterruptedException {
+    private static void inn() {
         print("You enter the Inn. The Innkeeper greets you.\nThe Inn is built out of wood and stone.");
     }
 
