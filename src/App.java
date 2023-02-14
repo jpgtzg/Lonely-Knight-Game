@@ -2,10 +2,9 @@ import java.util.Scanner;
 
 public class App extends SystemSettings {
     // Dialogue variables
-
     static Scanner in = new Scanner(System.in);
 
-    // Game Variables)
+    // Game Variables
     static Player player;
 
     public static void main(String[] args) {

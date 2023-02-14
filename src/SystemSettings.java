@@ -1,8 +1,7 @@
-/* 
+/**
  * Manages system methods, settings 
  * and game data
 */
-
 public class SystemSettings {
 
     public static void clear() {
