@@ -1,13 +1,15 @@
 public class Player {
 
-    String name;
-    int hp;
-    int maxHp;
+    private String name;
+    private int hp;
+    private int maxHp;
+    private Inventory inventory;
 
     public Player(String name , int hp, int maxHp) {
         this.name = name;
         this.hp = hp;
         this.maxHp = maxHp;
+        this.inventory = new Inventory();
     }
 
     public String getName() {
