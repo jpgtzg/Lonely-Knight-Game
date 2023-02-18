@@ -1,4 +1,9 @@
+package game;
 import java.util.Scanner;
+
+import gamemanager.App;
+import gamemanager.Player;
+import system.SystemSettings;
 
 public class Traebourne extends SystemSettings {
 

@@ -1,3 +1,4 @@
+package system;
 import java.util.Scanner;
 
 public class ChoiceManager extends SystemSettings {

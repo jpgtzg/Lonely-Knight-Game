@@ -1,3 +1,4 @@
+package gamemanager;
 public class Player {
 
     private String name;

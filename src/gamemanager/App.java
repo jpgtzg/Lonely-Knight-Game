@@ -1,11 +1,16 @@
+package gamemanager;
 import java.util.Scanner;
+
+import game.Traebourne;
+import system.ChoiceManager;
+import system.SystemSettings;
 
 public class App extends SystemSettings {
     // Dialogue variables
     static Scanner in = new Scanner(System.in);
 
     // Game Variables
-    static Player player;
+    public static Player player;
 
     public static void main(String[] args) {
         clear();
