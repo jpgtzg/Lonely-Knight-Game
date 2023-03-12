@@ -5,7 +5,7 @@ public class ChoiceManager extends SystemSettings {
 
     private static Scanner in = new Scanner(System.in);
 
-    public static Runnable makeChoiceInt(String choiceText, int numChoices, Runnable... method1Runnables) {
+    public static Runnable makeChoiceInt(String choiceText, Runnable... method1Runnables) {
 
         boolean decision = true;
         while (decision) {
@@ -23,7 +23,7 @@ public class ChoiceManager extends SystemSettings {
                     break;
                 case 3:
                     decision = false;
-                    method1Runnables[3].run();
+                    method1Runnables[2].run();
                     break;
 
                 default:
