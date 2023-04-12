@@ -1,3 +1,7 @@
+/**
+ * Written by Juan Pablo Gutiérrez
+ */
+
 package system;
 import java.util.Scanner;
 
@@ -48,6 +52,31 @@ public class ChoiceManager extends SystemSettings {
                     method1Runnables[0].run();
                     break;
                 case "n":
+                    decision = false;
+                    method1Runnables[1].run();
+                    break;
+                default:
+                    print("Please enter a valid choice");
+                    break;
+            }
+        }
+
+        return null;
+    }
+
+    public static Runnable makeChoiceSentiment(String choiceText, Runnable... method1Runnables) {
+
+        boolean decision = true;
+        while (decision) {
+            print(choiceText);
+            String choice = in.nextLine();
+
+            switch (choice) {
+                case "Good":
+                    decision = false;
+                    method1Runnables[0].run();
+                    break;
+                case "Bad":
                     decision = false;
                     method1Runnables[1].run();
                     break;
