@@ -1,3 +1,7 @@
+/**
+ * Written by Juan Pablo Gutiérrez
+ */
+
 package gamemanager;
 public class Player {
 
@@ -34,5 +38,9 @@ public class Player {
         System.out.println("Name: " + this.name);
         System.out.println("HP: " + this.hp);
         System.out.println("Max HP: " + this.maxHp);
+    }
+
+    public void addItem(Item item){
+        inventory.addItem(item);
     }
 }
