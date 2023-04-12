@@ -1,8 +1,13 @@
-package system;
 /**
- * Manages system methods, settings 
+ * Written by Juan Pablo Gutiérrez
+ */
+
+package system;
+
+/**
+ * Manages system methods, settings
  * and game data
-*/
+ */
 public class SystemSettings {
 
     public static void clear() {
