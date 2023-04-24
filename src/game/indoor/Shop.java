@@ -9,6 +9,7 @@ import java.util.Random;
 import gamemanager.Item;
 import gamemanager.Player;
 import system.ChoiceManager;
+import utils.Constants.ShopConstants;
 
 public class Shop extends IndoorPlace {
 
@@ -25,16 +26,6 @@ public class Shop extends IndoorPlace {
 
     private Random ran = new Random();
 
-    String[] names = { "Sword of Destiny", "The Wand of Power", "Legendary Bow", "Magic Tome", "Dragon's Scale Armor",
-            "Elven Cloak", "Ancient Staff", "Enchanted Shield", "Crystal Orb", "Mystic Robe" };
-    String[] descriptions = { "A powerful weapon forged by the gods themselves",
-            "Unleash your magic with this wand of immense power", "The perfect bow for any skilled archer",
-            "A book of ancient spells and knowledge", "Armor made from the scales of a dragon",
-            "A cloak woven by elven weavers from the finest materials", "A staff imbued with ancient magic",
-            "A shield that can deflect any attack", "A crystal orb that reveals hidden secrets",
-            "A robe infused with mystical energies" };
-    double[] prices = { 29.99, 49.99, 99.99, 149.99, 199.99, 249.99, 299.99, 349.99, 399.99, 449.99 };
-
     public Shop(Player player, Personalities vendorPersonality) {
         super(player);
 
@@ -43,7 +34,7 @@ public class Shop extends IndoorPlace {
 
     public void run() {
         for (int i = 0; i < productLists.length; i++) {
-            productLists[i] = Item.generateRandomProduct(names, descriptions, prices);
+            productLists[i] = Item.generateRandomProduct(ShopConstants.names, ShopConstants.descriptions, ShopConstants.prices);
         }
 
         switch (vendorPersonality) {
