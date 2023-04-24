@@ -83,9 +83,9 @@ public class Shop extends IndoorPlace {
         }
 
         ChoiceManager.makeChoiceInt("Choose an item",
-                () -> player.addItem(productLists[randomIndexes[0]]),
-                () -> player.addItem(productLists[randomIndexes[1]]),
-                () -> player.addItem(productLists[randomIndexes[2]]));
+                () -> player.spendGp(productLists[randomIndexes[0]].getPrice(), productLists[randomIndexes[0]]),
+                () -> player.spendGp(productLists[randomIndexes[1]].getPrice(), productLists[randomIndexes[1]]),
+                () -> player.spendGp(productLists[randomIndexes[2]].getPrice(), productLists[randomIndexes[2]]));
     }
 
 }
