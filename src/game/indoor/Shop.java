@@ -4,6 +4,8 @@
 
 package game.indoor;
 
+import java.util.Random;
+
 import gamemanager.Item;
 import gamemanager.Player;
 import system.ChoiceManager;
@@ -20,6 +22,8 @@ public class Shop extends IndoorPlace {
     private Personalities vendorPersonality;
 
     private Item[] productLists = new Item[10];
+
+    private Random ran = new Random();
 
     String[] names = { "Sword of Destiny", "The Wand of Power", "Legendary Bow", "Magic Tome", "Dragon's Scale Armor",
             "Elven Cloak", "Ancient Staff", "Enchanted Shield", "Crystal Orb", "Mystic Robe" };
@@ -38,7 +42,6 @@ public class Shop extends IndoorPlace {
     }
 
     public void run() {
-
         for (int i = 0; i < productLists.length; i++) {
             productLists[i] = Item.generateRandomProduct(names, descriptions, prices);
         }
@@ -60,18 +63,29 @@ public class Shop extends IndoorPlace {
     }
 
     public void runOld() {
+        clear();
+
         if (firstTime) {
-            print("OLD VENDOR: Welcome kid, you seem new to this town\nHow are you?");
+            print("OLD VENDOR: Welcome kid, you seem new to this town");
             ChoiceManager.makeChoiceSentiment("How are you?",
-                    () -> print("Happy to know, and nice to meet you. I'm always here if you need anything"),
-                    () -> print("Mmmm, that's too bad. Let's hope I have what you're looking for"));
-            print("Well kid, suit yourself");
+                    () -> print("Happy to know, and nice to meet you. I'm always here if you need anything\n"),
+                    () -> print("Mmmm, that's too bad. Let's hope I have what you're looking for\n"));
             firstTime = false;
         } else {
-            print("Welcome back, " + player.getName() + "\nReady for some adventures?");
+            print("Welcome back, " + player.getName()
+                    + "\nReady for some adventures?\nHere are some brand new Items you might want to take a look at\n");
+        }
+        print("Here are some brand new items you might want to take a look at, though they have a price");
+        int[] randomIndexes = new int[3];
+        for (int i = 0; i < 3; i++) {
+            int index = ran.nextInt(productLists.length);
+            print(productLists[index].toString());
         }
 
-        print("I have some brand new products");
+        ChoiceManager.makeChoiceInt("Choose an item",
+                () -> player.addItem(productLists[randomIndexes[0]]),
+                () -> player.addItem(productLists[randomIndexes[1]]),
+                () -> player.addItem(productLists[randomIndexes[2]]));
     }
 
 }
