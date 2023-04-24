@@ -21,9 +21,11 @@ public class Traebourne extends SystemSettings {
     // Game variables
     private static Player player = App.player;
 
-    private static Shop tShop = new Shop(player, Personalities.OLD);
+    private static Shop tShop;
 
     public static void main(String[] args) {
+        tShop = new Shop(player, Personalities.OLD);
+        
         clear();
         print("You are in Traebourne Town."
                 + "\nIn front of you, there's a sign that reads 'Traebourne Inn'."
