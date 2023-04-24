@@ -4,8 +4,6 @@
 
 package game;
 
-import java.util.Scanner;
-
 import game.indoor.Shop;
 import game.indoor.Shop.Personalities;
 import gamemanager.App;
@@ -14,9 +12,6 @@ import system.ChoiceManager;
 import system.SystemSettings;
 
 public class Traebourne extends SystemSettings {
-
-    // Dialogue Variables
-    private static Scanner in = new Scanner(System.in);
 
     // Game variables
     private static Player player = App.player;
