@@ -3,18 +3,22 @@
  */
 
 package gamemanager;
+
+import java.util.ArrayList;
+
 public class Player {
 
     private String name;
     private int hp;
     private int maxHp;
-    private Inventory inventory;
+    private double gp;
+
+    private ArrayList<Item> inventory = new ArrayList<Item>();
 
     public Player(String name , int hp, int maxHp) {
         this.name = name;
         this.hp = hp;
         this.maxHp = maxHp;
-        this.inventory = new Inventory();
     }
 
     public String getName() {
@@ -33,14 +37,36 @@ public class Player {
         this.hp = hp;
     }
 
-    //show status
     public void status() {
         System.out.println("Name: " + this.name);
         System.out.println("HP: " + this.hp);
         System.out.println("Max HP: " + this.maxHp);
     }
 
+    /* Money */
+    public double getGp(){
+        return gp;
+    }
+
+    public boolean spendGp(double cost){
+        if(gp >= cost){
+            gp =- cost;
+            return true;
+        }
+        return false;
+    }
+
+    /* Inventory */
     public void addItem(Item item){
-        inventory.addItem(item);
+        inventory.add(item);
+    }
+
+    public String getInventory(){
+        String res = "";
+
+        for (Item item : inventory) {
+            res += item.toString();
+        }
+        return res;
     }
 }
