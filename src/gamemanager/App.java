@@ -14,7 +14,7 @@ public class App extends SystemSettings {
     static Scanner in = new Scanner(System.in);
 
     // Game Variables
-    public static Player player;
+    public static Player player = new Player("Jack", 199, 199); //TODO DEBUG ONLY;
 
     public static void main(String[] args) {
         clear();
