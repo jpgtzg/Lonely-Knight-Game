@@ -15,53 +15,125 @@ public class Player {
 
     private ArrayList<Item> inventory = new ArrayList<Item>();
 
-    public Player(String name , int hp, int maxHp) {
+    public Player(String name, int hp, int maxHp) {
         this.name = name;
         this.hp = hp;
         this.maxHp = maxHp;
     }
 
+    /**
+     * Gets the {@link Player}'s name'
+     * 
+     * @return Player name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets the {@link Player}'s name'
+     * 
+     * @param name New player name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Gets the {@link Player}'s current HP'
+     * 
+     * @return Current HP
+     */
     public int getHp() {
         return hp;
     }
 
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-
-    public void status() {
-        System.out.println("Name: " + this.name);
-        System.out.println("HP: " + this.hp);
-        System.out.println("Max HP: " + this.maxHp);
+    /**
+     * 
+     * Takes damage from the {@link Player}
+     * 
+     * @param damage Damage taken
+     * @return True if player is still alive, False if player is dead (Hp equals to
+     *         0)
+     */
+    public boolean takeDamage(int damage) {
+        if (damage > hp) {
+            hp = 0;
+            return false;
+        }
+        hp -= damage;
+        return true;
     }
 
     /* Money */
-    public double getGp(){
+    /**
+     * Gets the current GP
+     * 
+     * @return Current GP
+     */
+    public double getGp() {
         return gp;
     }
 
-    public boolean spendGp(double cost){
-        if(gp >= cost){
-            gp =- cost;
+    /**
+     * Substracts the cost from the gp
+     * 
+     * @param cost Product Cost
+     * @return True if money is available, false otherwise
+     */
+    public boolean spendGp(double cost) {
+        if (gp >= cost) {
+            gp = -cost;
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Substracts the cost from the gp, and adds and item to the inventory
+     * 
+     * @param cost Product Cost
+     * @param item Item toa add
+     * @return True if money is available, false otherwise
+     */
+    public boolean spendGp(double cost, Item item) {
+        if (gp >= cost) {
+            gp = -cost;
+            addItem(item);
             return true;
         }
         return false;
     }
 
     /* Inventory */
-    public void addItem(Item item){
+    /**
+     * Manually adds an item to the inventory
+     * 
+     * @param item Item to add
+     */
+    public void addItem(Item item) {
         inventory.add(item);
     }
 
-    public String getInventory(){
+    /**
+     * Removes a specific item from the inventory
+     * 
+     * @param itemName Item name to remove
+     */
+    public void spendItem(String itemName) {
+        for (Item item : inventory) {
+            if (item.getName().equals(itemName)) {
+                inventory.remove(item);
+            }
+        }
+    }
+
+    /**
+     * Returns the entire inventory
+     * 
+     * @return Inventory string
+     */
+    public String getInventory() {
         String res = "";
 
         for (Item item : inventory) {
