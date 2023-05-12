@@ -19,13 +19,13 @@ public class SystemSettings {
         char chars[] = text.toCharArray();
         for (char letter : chars) {
             System.out.print(letter);
-            try {
+            /* try {
                 Thread.sleep(50);
             } catch (InterruptedException e) {
                 e.printStackTrace();
-            }
+            } */
 
         }
-        System.out.println("\n");
+        System.out.print("\n");
     }
 }
