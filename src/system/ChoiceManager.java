@@ -10,7 +10,7 @@ public class ChoiceManager extends SystemSettings {
 
     private static Scanner in = new Scanner(System.in);
 
-    public static Runnable makeChoiceInt(String choiceText, Runnable... method1Runnables) {
+    public static void makeChoiceInt(String choiceText, Runnable... method1Runnables) {
         print("");
         print("Press enter to continue");
         in.nextLine();
@@ -42,11 +42,9 @@ public class ChoiceManager extends SystemSettings {
                     break;
             }
         }
-
-        return null;
     }
 
-    public static Runnable makeChoiceYN(String choiceText, Runnable... method1Runnables) {
+    public static void makeChoiceYN(String choiceText, Runnable... method1Runnables) {
         print("");
         print("Press enter to continue");
 
@@ -73,11 +71,9 @@ public class ChoiceManager extends SystemSettings {
                     break;
             }
         }
-
-        return null;
     }
 
-    public static Runnable makeChoiceSentiment(String choiceText, Runnable... method1Runnables) {
+    public static void makeChoiceSentiment(String choiceText, Runnable... method1Runnables) {
         print("");
         in.nextLine();
 
@@ -102,8 +98,6 @@ public class ChoiceManager extends SystemSettings {
                     break;
             }
         }
-
-        return null;
     }
 
 }
